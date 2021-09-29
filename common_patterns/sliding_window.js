@@ -9,10 +9,27 @@ function maxSubArray(arr, n) {
             temp += arr[i + j];
         }
         if (temp > max) {
-            max = temp;
+            max = temp; //O(N^2)
         }
     }
     return max;
 }
 
-console.log(maxSubArray([1, 2, 5, 8, 1, 5, 4], 4));
+console.log(maxSubarraySum([1, 2, 5, 8, 1, 5, 4], 4));
+
+function maxSubarraySum(arr, n) {
+    let maxSum = 0;
+    let tempSum = 0;
+    if (arr.length < n) {
+        return null;
+    }
+    for (let i = 0; i < n; i++) {
+        maxSum += arr[i];
+    }
+    tempSum = maxSum;
+    for (let j = n; j < arr.length; j++) {
+        tempSum = tempSum - arr[j - n] + arr[j];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum;
+}
