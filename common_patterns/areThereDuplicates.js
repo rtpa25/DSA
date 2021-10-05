@@ -21,3 +21,5 @@ function areThereDuplicates() {
 }
 
 console.log(areThereDuplicates("a", "b", "c", "d", "e", "a"));
+
+console.log([1, 2, 3, 4, 5, 6].indexOf(11));
