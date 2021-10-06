@@ -1,14 +1,19 @@
+// takes an arra and returns the product of all the elements in the array.
 function productOfArray(arr) {
-    let product = 1;
-    // ensure if the array is not empty if it is then return undefined
-    if (arr.length === 0) {
-        return;
+    let result = 1;
+
+    function helper(helperArr) {
+        if (helperArr.length === 0) {
+            return;
+        } else {
+            result *= helperArr[0];
+        }
+        helper(helperArr.slice(1));
     }
-    //reccursive multiplication of product with all the elements in the array
-    product * arr[0];
-    productOfArray(arr.slice(1));
-    // return the product of all the items in the array
-    return product;
+    helper(arr);
+
+    // return the product
+    return result;
 }
 
-console.log(productOfArray([1, 2, 3]));
+console.log(productOfArray([1, 2, 3, 4, 5]));
