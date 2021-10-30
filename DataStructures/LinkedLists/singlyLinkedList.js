@@ -2,7 +2,7 @@
 
 // is a collection of nodes
 
-//NODE :- stores a data - val and reffernces to the next node - next
+//NODE :- stores a data - val and reffernces to the next current - next
 
 class Node {
   constructor(val) {
@@ -29,18 +29,18 @@ class SinglyLinkedList {
   }
   //inserting to the last of the list
   push(val) {
-    let node = new Node(val);
+    let current = new Node(val);
     if (!this.head) {
-      this.head = node;
-      this.tail = node;
+      this.head = current;
+      this.tail = current;
     } else {
-      this.tail.next = node;
-      this.tail = node;
+      this.tail.next = current;
+      this.tail = current;
     }
     this.length++;
     return this;
   }
-  //removing a node from the end of the linked list
+  //removing a current from the end of the linked list
   //this is where the first problem arises we just have a one directional connection
   pop() {
     if (this.length === 0) {
@@ -62,7 +62,7 @@ class SinglyLinkedList {
       return current;
     }
   }
-  //Removing and returning node from the begginig of the linked list
+  //Removing and returning current from the begginig of the linked list
   shift() {
     if (this.length === 0) {
       return undefined;
@@ -75,7 +75,7 @@ class SinglyLinkedList {
     }
     return toBeRemovedHead.val;
   }
-  //Adding a new node to the begginig of the linked list
+  //Adding a new current to the begginig of the linked list
   unshift(val) {
     let newNode = new Node(val);
 
@@ -90,7 +90,7 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-  //Retriving a node by it's position in the linkedList
+  //Retriving a current by it's position in the linkedList
   get(index) {
     if (index < 0 || index >= this.length) {
       return null;
@@ -103,20 +103,20 @@ class SinglyLinkedList {
     }
     return current;
   }
-  //changing the value of a node nbased on it's postion in the linked list
+  //changing the value of a current nbased on it's postion in the linked list
   set(index, value) {
     let prevNode = this.get(index - 1);
-    let node = this.get(index);
+    let current = this.get(index);
     let nextNode = this.get(index + 1);
-    if (node) {
-      node = new Node(value);
-      prevNode.next = node;
-      node.next = nextNode;
+    if (current) {
+      current = new Node(value);
+      prevNode.next = current;
+      current.next = nextNode;
       return true;
     }
     return false;
   }
-  //Insert a new node at a specified position
+  //Insert a new current at a specified position
   insert(index, value) {
     if (index < 0 || index > this.length) {
       return null;
@@ -133,7 +133,7 @@ class SinglyLinkedList {
       return true;
     }
   }
-  //removing a node from a specific index
+  //removing a current from a specific index
   remove(index) {
     if (index < 0 || index >= this.length) {
       return undefined;
@@ -152,16 +152,16 @@ class SinglyLinkedList {
   //REVERSE A SINGLY LINKED LIST IN PLACE
   reverse() {
     //swapped the head and the tail
-    let node = this.head;
+    let current = this.head;
     this.head = this.tail;
-    this.tail = node;
+    this.tail = current;
     let prev = null;
-    let next;
+    let next = null;
     for (let i = 0; i < this.length; i++) {
-      next = node.next;
-      node.next = prev;
-      prev = node;
-      node = next;
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
     }
     return this;
   }
