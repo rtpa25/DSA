@@ -14,6 +14,19 @@ class DoublyLinkedList {
     this.head = null;
     this.tail = null;
   }
+  //HELPER FUNCTIONS TO PRINT ALL THE ELEMENTS OF THE LIST IN AN ARRAY
+  print() {
+    let arr = [];
+    let current = this.head;
+    let counter = 0;
+
+    while (counter < this.length) {
+      arr.push(current.val);
+      current = current.next;
+      counter++;
+    }
+    console.log(arr);
+  }
   //Addsing a node to the end of the linked list
   push(val) {
     let newNode = new Node(val);
@@ -154,6 +167,27 @@ class DoublyLinkedList {
     this.length--;
     return toBeRemoved;
   }
+  //REVERSE THE DOUBLY_LINKED_LIST
+  reverse() {
+    if (this.length === 0) {
+      return undefined;
+    }
+    let current = this.head;
+    this.head = this.tail;
+    this.tail = current;
+    let counter = 0;
+    let prev = null;
+    let next = null;
+    while (counter < this.length) {
+      next = current.next;
+      current.prev = next;
+      current.next = prev;
+      prev = current;
+      current = next;
+      counter++;
+    }
+    return this;
+  }
 }
 
 //TESTING FUNCTIONS
@@ -164,6 +198,9 @@ list.push(30);
 list.push(40);
 list.push(50);
 list.push(60);
-list.remove(1);
 
-console.log(list);
+list.print();
+
+list.reverse();
+
+list.print();

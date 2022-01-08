@@ -1,0 +1,24 @@
+What is recursion ?
+--A process (a fucntion) that calls itself 
+  JSON.parse() and JSON.stringify() are recursive fucntion
+  document.getElementById() and DOM traversal algorithms are writed recursively 
+  It's sometime a cleaner alternative to iteration
+
+What is Call Stack?
+--It's a data structure called stack, 
+  when a function is invocked it is placed on the top of the stack 
+  when js sees the return key and when the func ends, the compiler will remove it
+  when we write recursive fucntions we keep pushing new fucntion onto the call stack 
+  The base case is the condition when the call stack ends
+  important points to note are the base case and changing the parameters
+
+Notes on the base case
+--It mostly always contains a conditional paired up with a return statement
+
+Common Pitfalls in reccursion
+--You do not have a valid edge case or no base case 
+  returning the wrong thing or nothing
+
+Helper method Recursion
+--compile some sort of result in an array or some sort of ds
+  a fucntion is wrapped around a reccursive fucntion

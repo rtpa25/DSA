@@ -1,0 +1,24 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "This is where all my DSA practice files reside :-)\r You can check it out it has all the files which comprise of problems and genral algorithims and data-structures in their desired folders\r Most of the content is form the course of Data structure and algorithms by colt steele \r All the code is in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtpa25/DSA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rtpa25/DSA/issues"
+  },
+  "homepage": "https://github.com/rtpa25/DSA#readme",
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "typescript": "^4.5.4"
+  }
+}

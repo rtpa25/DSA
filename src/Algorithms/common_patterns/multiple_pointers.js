@@ -1,3 +1,5 @@
+/** @format */
+
 //Write a fucntion called sumZero which accepts sorted array of integers.
 // The function should return the first pair of integers that that has a sum of 0
 // Return undefined if there are no such elements
@@ -18,7 +20,7 @@ function sumZero(arr) {
 
 // console.log(sumZero([-3, -2, 0, 1]));
 
-//Sick approach O(N)
+//Sick approach O(N) and O(1) space
 
 function sumZera(arr) {
   let left = 0;
