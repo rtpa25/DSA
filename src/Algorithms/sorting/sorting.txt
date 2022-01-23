@@ -1,0 +1,5 @@
+--SORTING
+  Sorting is the process of rerraning the items in a collection
+  so that items are in some kind of order
+  This is folder has mostly working with arrays and numbers in it 
+  

@@ -1,0 +1,11 @@
+Binary Search
+--Is much faster form of search works only for sorted arrays 
+  Rather than eliminating one element at a time you can eliminate half 
+  of the remaining elements at a time 
+
+--It works on the principle of divide and conquer
+  
+--TIME COMPLEXITY 
+  --worst and average case is O(log n) and best case is O(1){found in first iteration}
+    if the number of elements is n then the number of iterations is log 2 n{base is 2}
+    ex: if n=16 then no. of iterations is 4 if n is 32 then the number of iterations is 5
