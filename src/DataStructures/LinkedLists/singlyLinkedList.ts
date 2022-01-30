@@ -38,11 +38,13 @@ class SinglyLinkedList {
   }
   //utilliy method to print all the number of the SLL
   print() {
+    let arr = [];
     let current = this.head;
     while (current) {
-      console.log(current.val);
+      arr.push(current.val);
       current = current.next;
     }
+    console.log(arr);
   }
   //remove the tail and assign the prev node to the tail to the current tail
   pop() {
@@ -151,6 +153,29 @@ class SinglyLinkedList {
     return toBeRemovedNode;
   }
   //Reverse the linked list in place
+  reverse() {
+    //swap the head and the tail of the linked list
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    //create a variable caled next
+    let next;
+    //create a variable called prev
+    let prev = null;
+    //create a variable called node and initialize it to the head property
+
+    //loop through the list
+    while (node) {
+      //set next to be the next property on the node to be whatever prev is
+      next = node.next;
+      //set prev to be value of the node variable
+      node.next = prev;
+      //set the node variable to be value of the next variable
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -158,7 +183,8 @@ const list = new SinglyLinkedList();
 list.push(10);
 list.push(20);
 list.push(30);
-// list.insert(1, 15);
-list.remove(1);
+list.push(40);
+list.print();
+list.reverse();
 list.print();
 console.log(list);
