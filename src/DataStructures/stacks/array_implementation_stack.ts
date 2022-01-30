@@ -1,3 +1,5 @@
+/** @format */
+
 //any data structure that follows LIFO principle becomes a stack
 //LIFO = last thing in is the first thing that has to be removed, Arrays are not a great way to make stacks
 
@@ -17,11 +19,11 @@ console.log(stack);
 //as this has a lot of reindexing involved hense not the ideal way to make a stack with an array the push and pop method is better
 
 let newStack = [];
-newStack.unshift("i"); //unsigned adds the new element to the first
+newStack.unshift('i'); //unsigned adds the new element to the first
 
-newStack.unshift("am"); //unshifting involves re-indexing on every implementation
+newStack.unshift('am'); //unshifting involves re-indexing on every implementation
 
-newStack.unshift("cool"); //this is the last in
+newStack.unshift('cool'); //this is the last in
 
 newStack.shift(); // shift removes the first element so cool goes away
 console.log(newStack);

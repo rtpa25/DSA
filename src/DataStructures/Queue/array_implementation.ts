@@ -1,3 +1,5 @@
+/** @format */
+
 //As the name suggests queues are like lines the first person who was in the line moves first
 let q = [];
 
