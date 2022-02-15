@@ -19,28 +19,41 @@ class MaaxBinaryHeap {
     this.bubbleUp(value);
     return this.values;
   }
-  ExtractMax() {
-    let temp = this.values[0];
-    this.values[0] = this.values[this.values.length - 1];
-    this.values[this.values.length - 1] = temp;
-    this.values.pop();
-    let parentIndex = 0;
-    let child1idx = 2 * parentIndex + 1;
-    let child2idx = 2 * parentIndex + 2;
-    while (
-      this.values[child1idx] > this.values[parentIndex] ||
-      this.values[child2idx] > this.values[parentIndex]
-    ) {
-      let largestChild = Math.max(
-        this.values[child1idx],
-        this.values[child2idx]
-      );
-      let temp = largestChild;
-      this.values[this.values.indexOf(largestChild)] = this.values[parentIndex];
-      this.values[parentIndex] = temp;
-      parentIndex = this.values.indexOf(largestChild);
+  sinkDown(index: number) {
+    const length = this.values.length;
+    const element = this.values[index];
+    while (true) {
+      let leftChildIndex = 2 * index + 1;
+      let rightChildIndex = 2 * index + 2;
+      let leftChild: number, rightChild: number;
+      let swap = null;
+      if (leftChildIndex < length) {
+        leftChild = this.values[leftChildIndex];
+        if (leftChild > element) {
+          swap = leftChildIndex;
+        }
+      }
+      if (rightChildIndex < length) {
+        rightChild = this.values[rightChildIndex];
+        if (
+          (rightChild > element && swap === null) ||
+          (swap !== null && rightChild > leftChild!)
+        ) {
+          swap = rightChildIndex;
+        }
+      }
+      if (swap === null) break;
+      this.values[index] = this.values[swap];
+      this.values[swap] = element;
+      index = swap;
     }
-    return temp;
+  }
+  extractMax() {
+    const max = this.values[0];
+    const end = this.values.pop();
+    this.values[0] = end as number;
+    this.sinkDown(0);
+    return max;
   }
 }
 
@@ -58,6 +71,6 @@ bh.insert(187);
 
 console.log(bh.values);
 
-bh.ExtractMax();
+console.log(bh.extractMax());
 
 console.log(bh.values);
