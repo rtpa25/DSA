@@ -22,4 +22,23 @@ const binarySearch = (
   return -1;
 };
 
-console.log(binarySearch([1, 2, 3, 4, 5, 6, 8, 9], 9));
+const binarySearchWithReccursion = (
+  arr: string[] | number[],
+  find: string | number
+): boolean => {
+  const helper = (
+    arr: string[] | number[],
+    find: string | number,
+    start: number,
+    end: number
+  ): boolean => {
+    if (start > end) return false;
+    let mid = Math.floor((start + end) / 2);
+    if (arr[mid] === find) return true;
+    if (arr[mid] > find) return helper(arr, find, start, mid - 1);
+    else return helper(arr, find, mid + 1, end);
+  };
+  return helper(arr, find, 0, arr.length - 1);
+};
+
+console.log(binarySearchWithReccursion([1, 2, 3, 4, 5, 6, 8, 9], 9));

@@ -10,7 +10,7 @@
 //?TIME COMPLEXITY: best case when the data is very nearly sorted then O(n)
 //?worst case which is mostly the case it's O(n^2)
 
-const bubbleSort = (arr: number[]) => {
+const bubbleSortOptimized = (arr: number[]) => {
   //checks for swaps {optimization:short curcuits the process once the array is sorted}
   let noSwaps: boolean;
   // start at the end of the array are go back to 0 {i}
@@ -33,4 +33,20 @@ const bubbleSort = (arr: number[]) => {
   return arr;
 };
 
-console.log(bubbleSort([6, 1, 7, 2, 4, 5]));
+const bubbleSortUnoptimized = (arr: number[]) => {
+  for (let i = arr.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        //swap
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+};
+
+const bubbleSortReccursive = () => {};
+
+console.log(bubbleSortUnoptimized([6, 1, 7, 2, 4, 5]));

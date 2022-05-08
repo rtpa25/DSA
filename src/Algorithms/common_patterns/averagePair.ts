@@ -1,20 +1,18 @@
 /** @format */
 
-const averagePair = (arr: number[], targetAvg: number) => {
-  //initialte a pointer at both the extremes
+//the array is sorted
+const averagePair = (arr: number[], targetAvg: number): boolean => {
   let left = 0;
   let right = arr.length - 1;
-  //then start a while loop till left pointer is less than right pointer
   while (left < right) {
-    const avg = (arr[left] + arr[right]) / 2;
-    //check if the avg == the target
-    if (avg === targetAvg) return true;
-    //if avg is greater than target shift right to left
-    else if (avg > targetAvg) right--;
-    //else left to right
+    let avg = (arr[left] + arr[right]) / 2;
+    //the numbers has to go down hence the right pointer has to reduce as arr is sorted
+    if (avg > targetAvg) right--;
+    //we found the avg
+    else if (avg === targetAvg) return true;
+    //the numbers has to go up hence left pointer ++ as arr is sorted
     else left++;
   }
-  //return false becuase such an combination dne
   return false;
 };
 

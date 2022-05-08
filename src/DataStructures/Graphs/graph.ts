@@ -78,8 +78,9 @@ class Graph {
       [key: string]: boolean;
     } = {};
     visited[vertex] = true;
+    let currentVertex;
     while (queue.length) {
-      const currentVertex = queue.shift() as string;
+      currentVertex = queue.shift() as string;
       results.push(currentVertex);
       this.adjancencyList[currentVertex].forEach((neighbour) => {
         if (!visited[neighbour]) {

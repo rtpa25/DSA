@@ -1,5 +1,5 @@
 Binary Search
---Is much faster form of search works only for sorted arrays 
+--Is much faster form of search, works only for sorted arrays 
   Rather than eliminating one element at a time you can eliminate half 
   of the remaining elements at a time 
 

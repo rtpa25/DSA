@@ -4,9 +4,7 @@
 function linear(arr: any[], n: any) {
   for (var i = 0; i < arr.length; i++) {
     const element = arr[i];
-    if (element === n) {
-      return i;
-    }
+    if (element === n) return i;
   }
   return -1;
 }
