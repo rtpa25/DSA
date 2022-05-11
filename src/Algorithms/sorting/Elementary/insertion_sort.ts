@@ -5,9 +5,13 @@
 
 const inserTionSort = (arr: number[]) => {
   for (let i = 1; i < arr.length; i++) {
-    let element = arr[i];
-    for (let j = i - 1; j >= 0 && arr[j] > element; j--) {
-      arr[j + 1] = arr[j];
+    const element = arr[i];
+    for (let j = i - 1; j >= 0; j--) {
+      if (arr[j] > element) {
+        //swap
+        arr[j + 1] = arr[j];
+        arr[j] = element;
+      }
     }
   }
   return arr;

@@ -47,6 +47,24 @@ const bubbleSortUnoptimized = (arr: number[]) => {
   return arr;
 };
 
-const bubbleSortReccursive = () => {};
+// Base Case: If array size is 1, return.
+// Do One Pass of normal Bubble Sort. This pass fixes last element of current subarray.
+// Recur for all elements except last of current subarray.
+const bubbleSortReccursive = (arr: number[]) => {
+  const bubbleSortHelper = (index: number) => {
+    if (index === 1) return;
+    for (let i = 0; i < index - 1; i++) {
+      if (arr[i + 1] < arr[i]) {
+        //swap
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+    bubbleSortHelper(index - 1);
+  };
+  bubbleSortHelper(arr.length);
+  return arr;
+};
 
-console.log(bubbleSortUnoptimized([6, 1, 7, 2, 4, 5]));
+console.log(bubbleSortReccursive([2, 4, 1, 3, 5]));
