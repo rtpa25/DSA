@@ -86,10 +86,12 @@ class SinglyLinkedList {
   //insert a new value at the beggining of the the list
   unshift(val: number) {
     const newNode = new SllNode(val);
+    //if there does not exist any node in the sll
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
-    } //wihtout the else block we get into a circular refferencing to each other
+    }
+    //or if does then to avoid circular refferencing elements to each other
     else {
       newNode.next = this.head;
       this.head = newNode;
@@ -143,7 +145,7 @@ class SinglyLinkedList {
   }
   //remove a node from the linked list
   remove(index: number) {
-    if (index < 0 || index > this.length) return undefined;
+    if (index < 0 || index > this.length) return undefined; //invalid case
     if (index === this.length - 1) this.pop()?.val;
     if (index === 0) this.shift()?.val;
     let node = this.get(index - 1);
@@ -152,14 +154,14 @@ class SinglyLinkedList {
     this.length--;
     return toBeRemovedNode;
   }
-  //Reverse the linked list in place
+  //Reverse the linked list in place without making a new data structure
   reverse() {
     //swap the head and the tail of the linked list
     let node = this.head;
     this.head = this.tail;
     this.tail = node;
     //create a variable caled next
-    let next;
+    let next = null;
     //create a variable called prev
     let prev = null;
     //create a variable called node and initialize it to the head property

@@ -26,6 +26,7 @@ function pivotHelper(arr: number[], start = 0, end = arr.length - 1) {
 }
 
 function quickSort(arr: number[], left = 0, right = arr.length - 1) {
+  //base case is when left = right which takes account of the fact every array which has one element is sorted like merge sort and in that case we just return the array
   if (left < right) {
     let pivotIndex = pivotHelper(arr, left, right);
     //left

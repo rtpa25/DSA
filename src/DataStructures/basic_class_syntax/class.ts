@@ -30,7 +30,6 @@ class Student {
     return `Enrolling students`;
   }
 }
-
 const ronit = new Student('Ronit', 'Panda', 10);
 
 console.log(ronit.firstName);
