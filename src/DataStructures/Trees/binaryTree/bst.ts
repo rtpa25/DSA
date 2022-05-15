@@ -52,6 +52,7 @@ class BST {
             current = current.right!;
           }
         } else {
+          //val=current.val no repeated values in this case
           return undefined;
         }
       }
@@ -71,6 +72,7 @@ class BST {
         if (current!.left) {
           return insertHelper(val, current!.left);
         } else {
+          //base case for each block when there are no nodes either on the left or right hand side of consideration
           current!.left = newNode;
           return this;
         }
@@ -87,7 +89,7 @@ class BST {
     };
     return insertHelper(val);
   }
-  //BIG-0: O(log n)
+  //BIG-0: O(log n) basically the break of the compairison is basically log2n times where n is the number of nodes
   find(val: number): {
     isFound: boolean;
     foundNode: BSTNode | undefined;
@@ -196,17 +198,17 @@ class BST {
     return findHelper(val);
   }
   bfs(): number[] {
-    const data = [];
-    const queue = [];
+    const visited: number[] = [];
+    const queue: BSTNode[] = [];
     let node = this.root;
-    queue.push(this.root);
+    queue.push(this.root!);
     while (queue.length) {
       node = queue.shift() as BSTNode | null;
-      data.push(node!.val);
+      visited.push(node!.val);
       if (node?.left) queue.push(node.left);
       if (node?.right) queue.push(node.right);
     }
-    return data;
+    return visited;
   }
   dfsPreOrder() {
     const data: number[] = [];
@@ -264,5 +266,6 @@ console.log(bst.dfsInOrder());
 
 //if you use dfs inorder on a BST then you get all the values in a sorted format
 //if you use dfs preorder then you simply get the flattened version of the same tree
+//time complexity for all is same as we are touching each node just once
 //when bfs then more space complexity when the width is large
 //when the length is a lot like it goes really deep then space complexity is more for dfs than bfs

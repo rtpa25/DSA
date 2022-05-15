@@ -2,7 +2,7 @@
 
 class QueNode {
   val: number | null;
-  next: SllNode | null;
+  next: QueNode | null;
   constructor(val: number) {
     this.val = val;
     this.next = null;

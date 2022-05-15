@@ -2,7 +2,7 @@
 
 class StackNode {
   val: number | null;
-  next: SllNode | null;
+  next: StackNode | null;
   constructor(val: number) {
     this.val = val;
     this.next = null;
@@ -24,6 +24,7 @@ class Stack {
       this.first = newNode;
       this.last = newNode;
     } else {
+      //there are no links in here
       const oldFirst = this.first;
       this.first = newNode;
       this.first.next = oldFirst;
@@ -38,6 +39,7 @@ class Stack {
       this.first = null;
       this.last = null;
     } else {
+      //there are no links to remove
       this.first = this.first!.next;
     }
     this.size--;

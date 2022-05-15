@@ -45,11 +45,13 @@ class DoublyLinkedList {
     } else {
       this.tail = popedNode!.prev;
       this.tail!.next = null;
+      //cutting off the connection of the previous tail with the linked list
       popedNode!.prev = null;
     }
     this.length--;
     return popedNode;
   }
+  //remove the head
   shift() {
     if (this.length === 0) return undefined;
     const oldHead = this.head;
@@ -65,6 +67,7 @@ class DoublyLinkedList {
     this.length--;
     return oldHead;
   }
+  //add a new node at the beggining
   unshift(val: number) {
     const newNode = new DllNode(val);
     if (this.length == 0) {
@@ -78,9 +81,11 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+  //get the node with index
   get(index: number) {
     //check if the index is valid if not then return null
     if (index < 0 || index >= this.length) return null;
+    //the below optmization is possible in DLL and not SLL due to presence of two pointers with every node
     //check if the index is less than half of the length of the list
     if (index < this.length / 2) {
       //then start from the start counter will start from the head
@@ -111,6 +116,7 @@ class DoublyLinkedList {
     }
     return false;
   }
+  //put a certain node and a certain place inside the DLL
   insert(index: number, value: number) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) return !!this.unshift(value);

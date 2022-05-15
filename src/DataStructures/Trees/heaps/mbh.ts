@@ -5,6 +5,7 @@ class MaaxBinaryHeap {
   constructor() {
     this.values = [];
   }
+  //helper function used while inserting a new value into a maxbinaryheap
   bubbleUp(value: number) {
     let parentIndex = Math.floor((this.values.indexOf(value) - 1) / 2);
     while (this.values[parentIndex] < value) {
@@ -48,6 +49,7 @@ class MaaxBinaryHeap {
       index = swap;
     }
   }
+  //remove the max element from the heap
   extractMax() {
     const max = this.values[0];
     const end = this.values.pop();

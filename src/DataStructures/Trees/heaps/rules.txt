@@ -1,9 +1,9 @@
 --Rules For Max Binary Heap--
 
 - Each parent has at most 2 child nodes, 
-- The value of eachp parent node is always greater than its child node 
+- The value of each parent node is always greater than its child node 
 - In a max binary heap the parent is greater than the children, but there are no guarantee between sibling nodes 
-- A binary heap is as compact as possible. All the children of each node are as full as they can be and left children are filled out first.
+- A binary heap is as compact as possible. All the children of each node are as full as they can be and left children are filled out first. so basically once and only once we fill all the possible nodes in the existing depth we can not increment the depth
 
 
 useCases 
